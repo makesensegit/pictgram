@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'topics/new'
   get 'sessions/new'
   root 'pages#index'
@@ -13,5 +14,10 @@ Rails.application.routes.draw do
   
   resources :users
   resources :topics
+  
+  resources :comments
+  
+  get 'favorites/index'
+  post '/favorites', to: 'favorites#create'
 
 end

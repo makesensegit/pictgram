@@ -1,10 +1,17 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all
+    @topics = Topic.all.includes(:favorite_users)
   end
   
   def new
     @topic = Topic.new
+  end
+  
+  # コメント機能追加
+  def comment_params
+    @topic = topic.find(params[:id])
+    @comments = @topic.comments
+    @comment = Comment.new
   end
 
   def create
