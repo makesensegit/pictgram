@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+
   get 'topics/new'
   get 'sessions/new'
   root 'pages#index'
@@ -16,8 +16,13 @@ Rails.application.routes.draw do
   resources :topics
   
   resources :comments
+  # 新規追加
+  resources :favorites, only: [:create, :destroy]
   
   get 'favorites/index'
   post '/favorites', to: 'favorites#create'
+  # 新規追加
+  post '/favorites', to: 'favorites#destroy'
+
 
 end
