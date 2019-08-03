@@ -10,7 +10,7 @@
             <%= image_tag topic.image.url %>
             <%= image_tag 'icons/red_heart.jpg', class: 'topic-index-icon' %>
             <!--adding to favorites count function-->
-            <%= @favorite_count = Favorite.where(topic_id: params[:topic_id]).count %>
+            <%= topic.favorite_users.count %>
             <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
             <p class="topic-text">
               <%= topic.description %>
