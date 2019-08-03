@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'favorites/index'
   post '/favorites', to: 'favorites#create'
   # 新規追加
-  post '/favorites', to: 'favorites#destroy'
+  delete '/favorites', to: 'favorites#destroy'
 
 
 end
